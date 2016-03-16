@@ -1,0 +1,15 @@
+{
+  "name": "go1/jwt-middleware",
+  "prefer-stable": true,
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "go1\\jwt_middleware\\": "./"
+    }
+  },
+  "require": {
+    "silex/silex": "~2.0@dev",
+    "firebase/php-jwt": "^3.0",
+    "pimple/pimple": "^3.0"
+  }
+}
