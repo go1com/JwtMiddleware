@@ -11,7 +11,7 @@ class JwtMiddleware implements BootableProviderInterface
 {
     public function boot(Application $app)
     {
-        $this->before(function (Request $request) {
+        $app->before(function (Request $request) {
             $auth = $request->headers->get('Authorization') ?: $request->headers->get('authorization');
             if ($auth) {
                 if (0 === strpos($auth, 'Bearer ')) {

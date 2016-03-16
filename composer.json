@@ -1,5 +1,6 @@
 {
   "name": "go1/jwt-middleware",
+  "license": "MIT",
   "prefer-stable": true,
   "minimum-stability": "stable",
   "autoload": {
