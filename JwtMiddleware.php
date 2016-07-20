@@ -11,21 +11,18 @@ class JwtMiddleware implements BootableProviderInterface
 {
     public function boot(Application $app)
     {
-        $app->before(function (Request $request) {
-            $auth = $request->headers->get('Authorization') ?: $request->headers->get('authorization');
-            if ($auth) {
+        $app->before(function (Request $req) {
+            if ($auth = $req->headers->get('Authorization') ?: $req->headers->get('authorization')) {
                 if (0 === strpos($auth, 'Bearer ')) {
                     $token = substr($auth, 7);
                 }
             }
 
-            $token = $request->query->get('jwt', isset($token) ? $token : null);
+            $token = $req->query->get('jwt', isset($token) ? $token : null);
+            $token = $token ?: $req->cookies->get('jwt');
             if ($token && (2 === substr_count($token, '.'))) {
                 $token = explode('.', $token);
-                $request->request->set(
-                    'jwt.payload',
-                    JWT::jsonDecode(JWT::urlsafeB64Decode($token[1]))
-                );
+                $req->request->set('jwt.payload', JWT::jsonDecode(JWT::urlsafeB64Decode($token[1])));
             }
         });
     }
