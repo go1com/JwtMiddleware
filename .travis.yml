@@ -1,0 +1,17 @@
+language: php
+
+sudo: false
+
+php:
+    - 7.2
+
+before_script:
+    - composer install
+
+script: phpunit --coverage-text
+
+notifications:
+  email: false
+  hipchat:
+    rooms:
+      secure: TeG0XCVfiy0luB7Q9Xja6m5As1V9F7PidCSH7P/Lsl96vIJCGmVVkalFj0tysIZzaC7p5GqmHka3YJiCcmuUu73Z+Tbl9xXrjKWkNviH45+oivkZZuIwc8MqcI73cIXQwzdA6Ido1kcEaXL1jg3hci/X/qJlYz/pDW4lc7iCdtWHXA60jgRV8165Cr/IjWIN2o0E7wCuE9gnAPTCz+Y3Q4ScyTK78q3CKBmvx/dVHdwpoqOvZiK6kWWxveY0Z3+ATNBK1mtyD1e61z6aqTBjKJnv1YpvQRU1f2CeU6urFuU3x4NYt8+AkmPIOzPJjkaoCldMLyNChjjSEZj64GZqkSuJ2lea657E/bnqbg6E85+PCQ25MvQ40eL8WN0R84SKsVz0WpsAR2vSmgbhHZbZlKy1HLVPa+67QW+fNpC/ZNL4OSfS3ClVLT7rGopmQpdtmg8nV53G16MTiARP14kwU1hHV5d3vNzlFs2p2eyf8dZNAUpeeTPX/fpMaTOqZIUPJMPvEvRPYPWkoqgLtHppMYZGzNTX36rJsaeWojTDw7Xi8XUI1T0U4bFuhgkl53dhFgNYTazG+1RvS00dJwo8Zdw6tDh0BXo171qsWDy7WYIfJ0XXQTaWyRSDloQP6sHCyjDZ04IBUWWRfvQb55HyZCfs/uFK66SzOT597YNkoTY=
