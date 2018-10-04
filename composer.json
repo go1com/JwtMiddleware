@@ -10,7 +10,7 @@
   },
   "require": {
     "silex/silex": "~2.0@dev",
-    "firebase/php-jwt": "^3.0",
+    "firebase/php-jwt": "^5.0",
     "pimple/pimple": "^3.0"
   }
 }
