@@ -21,8 +21,8 @@ class JwtMiddleware implements BootableProviderInterface
             $token = $req->query->get('jwt', isset($token) ? $token : null);
             $token = $token ?: $req->cookies->get('jwt');
             if ($token && (2 === substr_count($token, '.'))) {
-                $token = explode('.', $token);
-                $req->attributes->set('jwt.payload', JWT::jsonDecode(JWT::urlsafeB64Decode($token[1])));
+                $chunks = explode('.', $token);
+                $req->attributes->set('jwt.payload', JWT::jsonDecode(JWT::urlsafeB64Decode($chunks[1])));
                 $req->attributes->set('jwt.raw', $token);
             }
         });
